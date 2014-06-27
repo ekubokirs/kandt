@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626043131) do
+ActiveRecord::Schema.define(version: 20140626140838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
     t.string   "comment"
+    t.integer  "user_id"
+    t.integer  "rule_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140626043131) do
 
   create_table "points", force: true do |t|
     t.string   "description"
+    t.integer  "rule_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,8 +40,14 @@ ActiveRecord::Schema.define(version: 20140626043131) do
   create_table "rules", force: true do |t|
     t.integer  "points"
     t.string   "description"
+    t.integer  "community_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_communities", force: true do |t|
+    t.integer "user_id"
+    t.integer "community_id"
   end
 
   create_table "users", force: true do |t|
@@ -52,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140626043131) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "community_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
