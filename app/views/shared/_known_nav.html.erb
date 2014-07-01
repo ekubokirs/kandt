@@ -1,0 +1,16 @@
+<div class="fixed">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "Kiss and Tell", root_url %></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+      <ul class="right">
+        <li>Communities</li>
+        <li><%= link_to "Log Out", destroy_user_session_url %></li>
+      </ul>
+    </section>
+  </nav>
+</div>
