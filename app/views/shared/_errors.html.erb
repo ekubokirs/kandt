@@ -1,0 +1,12 @@
+<div>
+  <h2>
+    You have <%= @community.errors.count %> error(s).  The following prevents this community from being saved:
+  </h2>
+  <ul>
+    <% @community.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+    <% end %>
+  </ul>
+</div>
